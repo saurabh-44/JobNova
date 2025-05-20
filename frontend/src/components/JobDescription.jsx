@@ -55,34 +55,34 @@ const JobDescription = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <Navbar />
-            <div className='max-w-7xl mx-auto px-4 py-10'>
-                <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-8'>
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10'>
+                <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 md:p-8'>
                     {/* Header Section */}
-                    <div className='flex flex-col md:flex-row justify-between gap-6'>
+                    <div className='flex flex-col md:flex-row justify-between gap-4 sm:gap-6'>
                         <div>
-                            <h1 className='text-2xl font-bold text-gray-900'>{singleJob?.title}</h1>
-                            <div className='flex items-center gap-4 mt-4 text-gray-600'>
-                                <div className="flex items-center gap-2">
+                            <h1 className='text-xl sm:text-2xl font-bold text-gray-900'>{singleJob?.title}</h1>
+                            <div className='flex flex-wrap items-center gap-3 sm:gap-4 mt-3 sm:mt-4 text-sm sm:text-base text-gray-600'>
+                                <div className="flex items-center gap-1.5 sm:gap-2">
                                     <Building2 className="h-4 w-4" />
                                     <span>{singleJob?.company?.name || 'Company Name'}</span>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-1.5 sm:gap-2">
                                     <MapPin className="h-4 w-4" />
                                     <span>{singleJob?.location}</span>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-1.5 sm:gap-2">
                                     <Calendar className="h-4 w-4" />
                                     <span>Posted {singleJob?.createdAt?.split("T")[0]}</span>
                                 </div>
                             </div>
-                            <div className='flex flex-wrap items-center gap-2 mt-4'>
-                                <Badge variant="ghost" className='bg-blue-50 text-blue-700 hover:bg-blue-100'>
+                            <div className='flex flex-wrap items-center gap-2 mt-3 sm:mt-4'>
+                                <Badge variant="ghost" className='bg-blue-50 text-blue-700 hover:bg-blue-100 text-xs sm:text-sm'>
                                     {singleJob?.postion} Positions
                                 </Badge>
-                                <Badge variant="ghost" className='bg-orange-50 text-orange-700 hover:bg-orange-100'>
+                                <Badge variant="ghost" className='bg-orange-50 text-orange-700 hover:bg-orange-100 text-xs sm:text-sm'>
                                     {singleJob?.jobType}
                                 </Badge>
-                                <Badge variant="ghost" className='bg-purple-50 text-purple-700 hover:bg-purple-100'>
+                                <Badge variant="ghost" className='bg-purple-50 text-purple-700 hover:bg-purple-100 text-xs sm:text-sm'>
                                     {singleJob?.salary} LPA
                                 </Badge>
                             </div>
@@ -90,7 +90,7 @@ const JobDescription = () => {
                         <Button
                             onClick={isApplied ? null : applyJobHandler}
                             disabled={isApplied}
-                            className={`h-fit px-8 py-3 rounded-xl transition-all duration-200 ${
+                            className={`h-fit w-full md:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl transition-all duration-200 ${
                                 isApplied 
                                 ? 'bg-gray-100 text-gray-500' 
                                 : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg'
@@ -101,14 +101,14 @@ const JobDescription = () => {
                     </div>
 
                     {/* Job Details Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-t border-b border-gray-200 py-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-6 sm:mt-8 border-t border-b border-gray-200 py-6 sm:py-8">
                         <div className="flex items-start gap-3">
                             <div className="p-2 bg-blue-50 rounded-lg">
                                 <BriefcaseIcon className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500">Job Type</p>
-                                <p className="font-medium text-gray-900">{singleJob?.jobType}</p>
+                                <p className="text-xs sm:text-sm text-gray-500">Job Type</p>
+                                <p className="text-sm sm:text-base font-medium text-gray-900">{singleJob?.jobType}</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
@@ -116,8 +116,8 @@ const JobDescription = () => {
                                 <Clock className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500">Experience</p>
-                                <p className="font-medium text-gray-900">{singleJob?.experience} years</p>
+                                <p className="text-xs sm:text-sm text-gray-500">Experience</p>
+                                <p className="text-sm sm:text-base font-medium text-gray-900">{singleJob?.experience} years</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
@@ -125,8 +125,8 @@ const JobDescription = () => {
                                 <DollarSign className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500">Salary</p>
-                                <p className="font-medium text-gray-900">{singleJob?.salary} LPA</p>
+                                <p className="text-xs sm:text-sm text-gray-500">Salary</p>
+                                <p className="text-sm sm:text-base font-medium text-gray-900">{singleJob?.salary} LPA</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
@@ -134,16 +134,16 @@ const JobDescription = () => {
                                 <Users className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500">Total Applicants</p>
-                                <p className="font-medium text-gray-900">{singleJob?.applications?.length}</p>
+                                <p className="text-xs sm:text-sm text-gray-500">Total Applicants</p>
+                                <p className="text-sm sm:text-base font-medium text-gray-900">{singleJob?.applications?.length}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Job Description */}
-                    <div className="mt-8">
-                        <h2 className="text-lg font-semibold text-gray-900 mb-4">Job Description</h2>
-                        <div className="prose max-w-none text-gray-600">
+                    <div className="mt-6 sm:mt-8">
+                        <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Job Description</h2>
+                        <div className="prose max-w-none text-sm sm:text-base text-gray-600">
                             <p className="whitespace-pre-line">{singleJob?.description}</p>
                         </div>
                     </div>

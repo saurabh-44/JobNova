@@ -57,8 +57,8 @@ const HeroSection = () => {
                             animation: 'slideUp 0.8s ease-out 0.4s both'
                         }}
                     >
-                        <div className='flex flex-col sm:flex-row items-center gap-2 bg-white shadow-2xl border border-gray-100 p-3 rounded-2xl backdrop-blur-xl'>
-                            <div className="flex items-center w-full sm:w-auto">
+                        <div className='flex items-center gap-2 bg-white shadow-2xl border border-gray-100 p-3 rounded-2xl backdrop-blur-xl'>
+                            <div className="flex items-center flex-1">
                                 <Search className='h-5 w-5 sm:h-6 sm:w-6 text-gray-400 ml-2 sm:ml-4' />
                                 <input
                                     type="text"
@@ -69,7 +69,7 @@ const HeroSection = () => {
                             </div>
                             <Button 
                                 onClick={searchJobHandler} 
-                                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 sm:px-8 py-4 sm:py-6 rounded-xl text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl"
+                                className="ml-2 px-6 sm:px-8 py-4 sm:py-6 rounded-xl text-base sm:text-lg font-medium bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white transition-all duration-300 hover:shadow-xl"
                             >
                                 Search Jobs
                             </Button>

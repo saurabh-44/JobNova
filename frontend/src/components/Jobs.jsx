@@ -25,37 +25,39 @@ const Jobs = () => {
     }, [allJobs, searchedQuery]);
 
     return (
-        <div>
+        <div className="min-h-screen bg-gray-50">
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5'>
-                <div className='flex gap-5'>
-                    <div className='w-20%'>
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8'>
+                <div className='flex flex-col lg:flex-row gap-6'>
+                    {/* Filter Sidebar */}
+                    <div className='w-full lg:w-64 shrink-0'>
                         <FilterCard />
                     </div>
-                    {
-                        filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                <div className='grid grid-cols-3 gap-4'>
-                                    {
-                                        filterJobs.map((job) => (
-                                            <motion.div
-                                                initial={{ opacity: 0, x: 100 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0, x: -100 }}
-                                                transition={{ duration: 0.3 }}
-                                                key={job?._id}>
-                                                <Job job={job} />
-                                            </motion.div>
-                                        ))
-                                    }
-                                </div>
+
+                    {/* Job Listings */}
+                    <div className='flex-1'>
+                        {filterJobs.length <= 0 ? (
+                            <div className="text-center py-12">
+                                <p className="text-gray-500 text-lg">No jobs found</p>
                             </div>
-                        )
-                    }
+                        ) : (
+                            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
+                                {filterJobs.map((job) => (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        key={job?._id}
+                                    >
+                                        <Job job={job} />
+                                    </motion.div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
